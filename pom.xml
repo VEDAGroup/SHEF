@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.veda</groupId>
+    <artifactId>SHEF</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>net.sourceforge.shef</groupId>
+            <artifactId>sam</artifactId>
+            <version>0.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>jtidy</artifactId>
+            <version>r8-21122004</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.shef</groupId>
+            <artifactId>novaworx-syntax</artifactId>
+            <version>0.5</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                    <exclude>**/*.html</exclude>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
