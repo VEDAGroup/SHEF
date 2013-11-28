@@ -22,9 +22,9 @@ public class LinkAttributesPanel extends HTMLAttributeEditorPanel
      * 
      */
     private static final long serialVersionUID = 1L;
-    private static final String NEW_WIN = "New Window"; //$NON-NLS-1$
-    private static final String SAME_WIN = "Same Window"; //$NON-NLS-1$
-    private static final String SAME_FRAME = "Same Frame"; //$NON-NLS-1$
+    private static final String NEW_WIN = i18n.str("new_window"); //$NON-NLS-1$
+    private static final String SAME_WIN = i18n.str("same_window"); //$NON-NLS-1$
+    private static final String SAME_FRAME = i18n.str("same_frame"); //$NON-NLS-1$
     private static final String TARGET_LABELS[] =
     {NEW_WIN, SAME_WIN, SAME_FRAME};
     private static final String TARGETS[] = {"_blank", "_top", "_self"}; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
