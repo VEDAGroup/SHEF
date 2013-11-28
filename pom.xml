@@ -8,6 +8,17 @@
     <artifactId>SHEF</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <distributionManagement>
+        <repository>
+            <id>veda-releases</id>
+            <url>http://repo.veda.de:8081/nexus/content/repositories/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>veda-snapshots</id>
+            <url>http://repo.veda.de:8081/nexus/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
     <dependencies>
         <dependency>
             <groupId>net.sourceforge.shef</groupId>
