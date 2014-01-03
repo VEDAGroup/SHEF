@@ -9,6 +9,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -31,7 +32,7 @@ public class LinkPanel extends HTMLAttributeEditorPanel
     private JTextField textField = null;
     private HTMLAttributeEditorPanel linkAttrPanel = null;
     
-    private boolean urlFieldEnabled;    
+    private boolean urlFieldEnabled;
     
     /**
      * This is the default constructor
@@ -51,9 +52,15 @@ public class LinkPanel extends HTMLAttributeEditorPanel
     
     public LinkPanel(Hashtable attr, boolean urlFieldEnabled)
     {
+    	this(attr, urlFieldEnabled, null);
+    }
+    
+    public LinkPanel(Hashtable attr, boolean urlFieldEnabled, Set<String> hiddenAttributes)
+    {
         super();
         this.urlFieldEnabled = urlFieldEnabled;
         initialize();
+        setHiddenAttributes(hiddenAttributes);
         setAttributes(attr);
         updateComponentsFromAttribs();
     }
@@ -78,6 +85,11 @@ public class LinkPanel extends HTMLAttributeEditorPanel
     {       
         super.setAttributes(at);
         linkAttrPanel.setAttributes(attribs);
+    }
+    
+    public void setHiddenAttributes(Set hiddenAttribs) {
+    	super.setHiddenAttributes(hiddenAttribs);
+    	linkAttrPanel.setHiddenAttributes(this.hiddenAttribs);
     }
     
     public void setLinkText(String text)
