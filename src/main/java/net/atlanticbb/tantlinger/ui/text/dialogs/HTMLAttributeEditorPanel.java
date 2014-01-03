@@ -6,8 +6,10 @@ package net.atlanticbb.tantlinger.ui.text.dialogs;
 
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.Set;
 
 import javax.swing.JPanel;
 
@@ -26,6 +28,7 @@ public abstract class HTMLAttributeEditorPanel extends JPanel
     static final I18n i18n = I18n.getInstance("net.atlanticbb.tantlinger.ui.text.dialogs");
     
     protected Map attribs = new HashMap();
+    protected Set hiddenAttribs = new HashSet();
     
     public HTMLAttributeEditorPanel()
     {
@@ -49,6 +52,20 @@ public abstract class HTMLAttributeEditorPanel extends JPanel
         updateAttribsFromComponents();
         return attribs;        
     }
+    
+    public void setHiddenAttributes(Set hiddenAttribs)
+    {
+        if(hiddenAttribs == null){
+            hiddenAttribs = new HashSet();
+        }
+        this.hiddenAttribs = hiddenAttribs;
+        updateComponentsFromAttribs();
+    }
+    
+    public Set getHiddenAttributes()
+    {
+        return hiddenAttribs;        
+    }    
     
     /**
      * Subclasses should implement this method to set

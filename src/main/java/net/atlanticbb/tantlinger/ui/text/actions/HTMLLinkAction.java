@@ -8,6 +8,7 @@ import java.awt.Dialog;
 import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.ActionEvent;
+import java.util.Set;
 
 import javax.swing.Action;
 import javax.swing.JEditorPane;
@@ -28,6 +29,7 @@ import net.atlanticbb.tantlinger.ui.text.dialogs.HyperlinkDialog;
  */
 public class HTMLLinkAction extends HTMLTextEditAction
 {
+	private Set hiddenAttributes;
     /**
      * 
      */
@@ -35,11 +37,17 @@ public class HTMLLinkAction extends HTMLTextEditAction
 
     public HTMLLinkAction()
     {
+    	this(null);
+    }
+    
+    public HTMLLinkAction(Set hiddenAttributes)
+    {
         super(i18n.str("hyperlink_"));
         putValue(MNEMONIC_KEY, new Integer(i18n.mnem("hyperlink_")));
         
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "link.png"));
         putValue(Action.SHORT_DESCRIPTION, getValue(Action.NAME));
+        this.hiddenAttributes = hiddenAttributes;
     }
 
     protected void sourceEditPerformed(ActionEvent e, JEditorPane editor)
@@ -91,6 +99,9 @@ public class HTMLLinkAction extends HTMLTextEditAction
         else if(w != null && w instanceof Dialog)
             d = new HyperlinkDialog((Dialog)w);        
         
+        if(d != null && hiddenAttributes != null) {
+        	d.setHiddenAttributes(hiddenAttributes);
+        }
         
         return d;
     }
