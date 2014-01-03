@@ -30,17 +30,17 @@ public class HyperlinkDialog extends HTMLOptionDialog
     private static Icon icon = UIUtils.getIcon(UIUtils.X48, "link.png"); //$NON-NLS-1$
     private static String title = i18n.str("hyperlink"); //$NON-NLS-1$
     private static String desc = i18n.str("hyperlink_desc"); //$NON-NLS-1$
-    
+    private static boolean showHeader = true;
     private LinkPanel linkPanel;
     
     public HyperlinkDialog(Frame parent)
     {
-        this(parent, title, desc, icon, true);
+        this(parent, title, showHeader?desc:null, showHeader?icon:null, true);
     }
     
     public HyperlinkDialog(Dialog parent)
     {
-        this(parent, title, desc, icon, true);        
+        this(parent, title, showHeader?desc:null, showHeader?icon:null, true);        
     }
 
     public HyperlinkDialog(Dialog parent, String title, String desc, Icon ico, boolean urlFieldEnabled)
@@ -60,7 +60,11 @@ public class HyperlinkDialog extends HTMLOptionDialog
         linkPanel = new LinkPanel(urlFieldEnabled);
         linkPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         setContentPane(linkPanel);
-        setSize(315, 370);
+        if(showHeader) {
+            setSize(315, 370);
+        } else {
+            setSize(315, 314);
+        }
         setResizable(false);
     }
     
@@ -105,4 +109,7 @@ public class HyperlinkDialog extends HTMLOptionDialog
         return html;
     }
 
+    public static void setHeaderVisible(boolean showHeader){
+    	HyperlinkDialog.showHeader = showHeader;
+    }
 }

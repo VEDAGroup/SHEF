@@ -34,13 +34,14 @@ public class OptionDialog extends StandardDialog
     private void init(String title, String desc, Icon icon)
     {
         internalContentPane = new JPanel(new BorderLayout());
-        HeaderPanel hp = new HeaderPanel();
-        hp.setTitle(title);
-        hp.setDescription(desc);
-        hp.setIcon(icon);
-        //hp.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
-        internalContentPane.add(hp, BorderLayout.NORTH);
-        
+        if(desc != null || icon != null){
+            HeaderPanel hp = new HeaderPanel();
+            hp.setTitle(title);
+            hp.setDescription(desc);
+            hp.setIcon(icon);
+            //hp.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.GRAY));
+            internalContentPane.add(hp, BorderLayout.NORTH);
+        }
         super.setContentPane(internalContentPane);
     }
     
