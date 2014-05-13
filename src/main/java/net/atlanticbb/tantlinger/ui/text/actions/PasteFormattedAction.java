@@ -52,9 +52,11 @@ public class PasteFormattedAction extends HTMLTextEditAction
         addShouldBeEnabledDelegate(new ShouldBeEnabledDelegate()
         {
             public boolean shouldBeEnabled(Action a)
-            {                          
-                if(getCurrentEditor() == null)
-                    return false;
+            {
+            	JEditorPane editor = getCurrentEditor();
+                if(editor == null || !editor.isEditable() || !editor.isEnabled()) {
+                	return false;
+                }
                 
                 Transferable content = 
                     Toolkit.getDefaultToolkit().getSystemClipboard().getContents(PasteFormattedAction.this);

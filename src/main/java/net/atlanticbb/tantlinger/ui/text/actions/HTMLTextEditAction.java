@@ -37,8 +37,9 @@ public abstract class HTMLTextEditAction extends DefaultAction
         addShouldBeEnabledDelegate(new ShouldBeEnabledDelegate()
         {
             public boolean shouldBeEnabled(Action a)
-            {                          
-                return getEditMode() != DISABLED;
+            {
+            	JEditorPane editor = getCurrentEditor();
+            	return editor != null && editor.isEnabled() && editor.isEditable();
             }
         });
         updateEnabledState();
@@ -48,11 +49,15 @@ public abstract class HTMLTextEditAction extends DefaultAction
      * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
      */
     public void execute(ActionEvent e) throws Exception
-    {      
+    {
+    	JEditorPane editor = getCurrentEditor();
+    	if (!editor.isEnabled() || !editor.isEditable()) {
+    		return;
+    	}
        if(getEditMode() == WYSIWYG)           
-           wysiwygEditPerformed(e, getCurrentEditor());
+           wysiwygEditPerformed(e, editor);
        else if(getEditMode() == SOURCE)
-           sourceEditPerformed(e, getCurrentEditor());            
+           sourceEditPerformed(e, editor);            
     }
     
     public int getEditMode()
