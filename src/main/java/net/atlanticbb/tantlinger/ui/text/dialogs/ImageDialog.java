@@ -27,18 +27,18 @@ public class ImageDialog extends HTMLOptionDialog
     private static Icon icon = UIUtils.getIcon(UIUtils.X48, "image.png"); //$NON-NLS-1$
     private static String title = i18n.str("image"); //$NON-NLS-1$
     private static String desc = i18n.str("image_desc"); //$NON-NLS-1$
-
+    private static boolean showHeader = true;
     private ImagePanel imagePanel;
     
     public ImageDialog(Frame parent)
     {
-        super(parent, title, desc, icon);
+        super(parent, title, showHeader?desc:null, showHeader?icon:null);
         init();
     }
 
     public ImageDialog(Dialog parent)
     {
-        super(parent, title, desc, icon);   
+        super(parent, title, showHeader?desc:null, showHeader?icon:null);   
         init();
     }
     
@@ -90,5 +90,8 @@ public class ImageDialog extends HTMLOptionDialog
         
         return html;
     }
-    
+
+    public static void setHeaderVisible(boolean showHeader){
+    	ImageDialog.showHeader = showHeader;
+    }
 }
