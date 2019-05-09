@@ -23,7 +23,7 @@ public class HTMLEditorActionFactory
         list.add(new CutAction());
         list.add(new CopyAction());
         list.add(new PasteAction());
-        //list.add(new PasteFormattedAction());
+        list.add(new PasteFormattedAction());
         list.add(null);
         list.add(new SelectAllAction()); 
         //list.add(new IndentAction(IndentAction.INDENT));
