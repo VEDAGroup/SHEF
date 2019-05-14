@@ -54,8 +54,11 @@ public abstract class HTMLTextEditAction extends DefaultAction
     	if (!editor.isEnabled() || !editor.isEditable()) {
     		return;
     	}
-       if(getEditMode() == WYSIWYG)           
+    	editor.requestFocusInWindow();
+       if(getEditMode() == WYSIWYG) {
+    	   e.setSource(editor);
            wysiwygEditPerformed(e, editor);
+       }
        else if(getEditMode() == SOURCE)
            sourceEditPerformed(e, editor);            
     }
