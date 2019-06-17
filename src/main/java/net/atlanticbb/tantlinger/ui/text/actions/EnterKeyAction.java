@@ -56,6 +56,9 @@ public class EnterKeyAction extends DecoratedTextAction
         try
         {
             editor = (JEditorPane)getTextComponent(e);
+            if (!editor.isEditable() || !editor.isEnabled()) {
+            	return;
+            }
             document = (HTMLDocument)editor.getDocument();             
         }
         catch(ClassCastException ex)

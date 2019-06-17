@@ -1,3 +1,6 @@
 .idea
 target
+.settings/
+.classpath
+.project
 SHEF.iml

@@ -43,10 +43,15 @@ public class PasteAction extends HTMLTextEditAction
         addShouldBeEnabledDelegate(new ShouldBeEnabledDelegate()
         {
             public boolean shouldBeEnabled(Action a)
-            {                          
+            {
+            	JEditorPane editor = getCurrentEditor();
+            	if (editor == null) {
+            		return true;
+            	}
+            	return editor.isEditable() && editor.isEnabled();
+            	
                 //return getCurrentEditor() != null &&
                 //    Toolkit.getDefaultToolkit().getSystemClipboard().getContents(PasteAction.this) != null;
-                return true;
             }
         });
         

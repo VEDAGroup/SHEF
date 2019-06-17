@@ -390,6 +390,10 @@ public class HTMLUtils
         tidy.setOutputEncoding("UTF-8");
         tidy.setInputEncoding("UTF-8");
         
+        if (editor.getSelectionEnd() > editor.getSelectionStart()) {
+        	editor.replaceSelection("");
+        }
+        
         try
         {
             ByteArrayInputStream bin = new ByteArrayInputStream(rawHtml.getBytes("UTF-8"));       
