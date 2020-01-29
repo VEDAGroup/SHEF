@@ -15,11 +15,14 @@ import java.awt.event.KeyEvent;
 import javax.swing.Action;
 import javax.swing.JEditorPane;
 import javax.swing.KeyStroke;
+import javax.swing.text.Element;
+import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
 
 import net.atlanticbb.tantlinger.ui.UIUtils;
 import net.atlanticbb.tantlinger.ui.text.CompoundUndoManager;
+import net.atlanticbb.tantlinger.ui.text.HTMLUtils;
 
 import org.bushe.swing.action.ActionManager;
 import org.bushe.swing.action.ShouldBeEnabledDelegate;
@@ -91,11 +94,33 @@ public class PasteAction extends HTMLTextEditAction
             Transferable content = clip.getContents(this);                           
             String txt = content.getTransferData(
                 new DataFlavor(String.class, "String")).toString();
-        
-            document.replace(editor.getSelectionStart(),
-                editor.getSelectionEnd() - editor.getSelectionStart(),
-                txt, ekit.getInputAttributes());
-            
+
+            boolean useHtmlMode = txt != null && txt.contains("\n");
+            boolean beginParagraph = false;
+            if (useHtmlMode) {
+            	int caret = editor.getCaretPosition();
+            	Element pElem = document.getParagraphElement(caret);
+            	beginParagraph = caret == pElem.getStartOffset();
+            	System.out.println(pElem);
+            	if (!HTMLUtils.isImplied(pElem)) {
+            		useHtmlMode = false;
+            	}
+            }
+
+            if (useHtmlMode) {
+                if (editor.getSelectionEnd() > editor.getSelectionStart()) {
+                	editor.replaceSelection("");
+                }
+                if (beginParagraph) {
+                	HTMLUtils.insertHTML(generateHtml(escapeHtml(txt), true), HTML.Tag.DIV, editor);
+                } else {
+                	HTMLUtils.insertHTML("<span></span>" + generateHtml(escapeHtml(txt), false), HTML.Tag.SPAN, editor);
+                }
+            } else {
+            	document.replace(editor.getSelectionStart(),
+            			editor.getSelectionEnd() - editor.getSelectionStart(),
+            			txt, ekit.getInputAttributes());
+            }
         } 
         catch(Exception ex) 
         {
@@ -105,5 +130,24 @@ public class PasteAction extends HTMLTextEditAction
         {
             CompoundUndoManager.endCompoundEdit(document);
         }
-    }    
+    }
+
+    private String generateHtml(String text, boolean useDivs) {
+    	String result;
+    	if (useDivs) {
+    		result = "<div>" + text.replace("\n", "</div>\n<div>") + "</div>";
+    	} else {
+    		result = text.replace("\n", "<br>\n");
+    	}
+    	return result;
+    }
+
+    private String escapeHtml(String text) {
+    	String result = text;
+    	result = result.replace("&", "&amp;");
+    	result = result.replace("<", "&lt;");
+    	result = result.replace(">", "&gt;");
+
+    	return result;
+    }
 }
