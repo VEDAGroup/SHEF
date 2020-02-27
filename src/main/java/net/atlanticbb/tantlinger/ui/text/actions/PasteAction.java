@@ -101,7 +101,7 @@ public class PasteAction extends HTMLTextEditAction
             	int caret = editor.getCaretPosition();
             	Element pElem = document.getParagraphElement(caret);
             	beginParagraph = caret == pElem.getStartOffset();
-            	System.out.println(pElem);
+
             	if (!HTMLUtils.isImplied(pElem)) {
             		useHtmlMode = false;
             	}
