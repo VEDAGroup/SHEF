@@ -16,6 +16,7 @@ import javax.swing.Action;
 import javax.swing.JEditorPane;
 import javax.swing.KeyStroke;
 import javax.swing.text.Element;
+import javax.swing.text.html.CSS;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
@@ -100,10 +101,16 @@ public class PasteAction extends HTMLTextEditAction
             if (useHtmlMode) {
             	int caret = editor.getCaretPosition();
             	Element pElem = document.getParagraphElement(caret);
-            	beginParagraph = caret == pElem.getStartOffset();
-
-            	if (!HTMLUtils.isImplied(pElem)) {
+            	Element parentElem = pElem.getParentElement();
+            	if (pElem.getAttributes().containsAttribute(CSS.getAttribute("white-space"), "pre")) {
             		useHtmlMode = false;
+            	} else {
+            		beginParagraph = caret == pElem.getStartOffset();
+            		if (!HTMLUtils.isImplied(pElem)) {
+            			useHtmlMode = false;
+            		} else if (parentElem != null && "li".equalsIgnoreCase(parentElem.getName())) {
+                		beginParagraph = false;
+            		}
             	}
             }
 
