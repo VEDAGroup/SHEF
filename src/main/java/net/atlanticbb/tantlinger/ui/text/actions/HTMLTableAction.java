@@ -68,19 +68,22 @@ public class HTMLTableAction extends HTMLTextEditAction
             return;
         
         HTMLDocument document = (HTMLDocument)editor.getDocument();        
-        String html = dlg.getHTML() + "<div></div>";
+        String html = dlg.getHTML();
         
         Element elem = document.getParagraphElement(editor.getCaretPosition());
         CompoundUndoManager.beginCompoundEdit(document);
         try
         {            
-            if(HTMLUtils.isElementEmpty(elem))
-            	document.setInnerHTML(elem, html);
-             //   document.setOuterHTML(elem, html);
-            else if(elem.getName().equals("p-implied"))
-                document.insertAfterEnd(elem, html);          
-            else
-                HTMLUtils.insertHTML(html, HTML.Tag.TABLE, editor);
+            if(HTMLUtils.isElementEmpty(elem)) {
+            	document.setOuterHTML(elem, html);
+            	document.insertAfterEnd(elem, "<div></div>");
+            } else if(elem.getName().equals("p-implied")) {
+            	Element parent = elem.getParentElement();
+            	document.insertAfterEnd(parent, "<div></div>");
+                document.insertAfterEnd(parent, html);
+            } else {
+                HTMLUtils.insertHTML(html, HTML.Tag.DIV, editor);
+            }
         }
         catch(Exception ex)
         {

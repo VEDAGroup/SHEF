@@ -55,6 +55,7 @@ public class NewTableDialog extends OptionDialog
     {
         //default attribs
         Hashtable ht = new Hashtable();
+        ht.put("cellspacing", "0"); //$NON-NLS-1$ //$NON-NLS-2$
     //    ht.put("border", "1"); //$NON-NLS-1$ //$NON-NLS-2$
     //    ht.put("width", "100%"); //$NON-NLS-1$ //$NON-NLS-2$
         propsPanel = new TableAttributesPanel();
