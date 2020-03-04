@@ -37,16 +37,17 @@ public class NewTableDialog extends OptionDialog
     private LayoutPanel layoutPanel = new LayoutPanel();
     private TableAttributesPanel propsPanel;
     private static Icon icon = UIUtils.getIcon(UIUtils.X48, "table.png"); //$NON-NLS-1$
+    private static boolean showHeader = true;
     
     public NewTableDialog(Frame parent)
     {
-        super(parent, i18n.str("new_table"), i18n.str("new_table_desc"), icon);         //$NON-NLS-1$ //$NON-NLS-2$
+        super(parent, i18n.str("new_table"), showHeader?i18n.str("new_table_desc"):null, showHeader?icon:null);         //$NON-NLS-1$ //$NON-NLS-2$
         init();
     }
     
     public NewTableDialog(Dialog parent)
     {
-        super(parent, i18n.str("new_table"), i18n.str("new_table_desc"), icon);         //$NON-NLS-1$ //$NON-NLS-2$
+        super(parent, i18n.str("new_table"), showHeader?i18n.str("new_table_desc"):null, showHeader?icon:null);         //$NON-NLS-1$ //$NON-NLS-2$
         init();
     }
     
@@ -54,8 +55,9 @@ public class NewTableDialog extends OptionDialog
     {
         //default attribs
         Hashtable ht = new Hashtable();
-        ht.put("border", "1"); //$NON-NLS-1$ //$NON-NLS-2$
-        ht.put("width", "100%"); //$NON-NLS-1$ //$NON-NLS-2$
+        ht.put("cellspacing", "0"); //$NON-NLS-1$ //$NON-NLS-2$
+    //    ht.put("border", "1"); //$NON-NLS-1$ //$NON-NLS-2$
+    //    ht.put("width", "100%"); //$NON-NLS-1$ //$NON-NLS-2$
         propsPanel = new TableAttributesPanel();
         propsPanel.setAttributes(ht);
         
@@ -119,7 +121,7 @@ public class NewTableDialog extends OptionDialog
          */
         public LayoutPanel()
         {
-            this(1, 1);
+            this(4, 2);
         }
         
         public LayoutPanel(int r, int c)
@@ -214,5 +216,8 @@ public class NewTableDialog extends OptionDialog
             return colsField;
         }
     }
- 
+
+    public static void setHeaderVisible(boolean showHeader){
+    	NewTableDialog.showHeader = showHeader;
+    }
 }
