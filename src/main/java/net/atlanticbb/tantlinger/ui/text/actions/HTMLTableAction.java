@@ -46,7 +46,7 @@ public class HTMLTableAction extends HTMLTextEditAction
 
     protected void sourceEditPerformed(ActionEvent e, JEditorPane editor)
     {       
-        NewTableDialog dlg = createNewTableDialog(editor);        
+        NewTableDialog dlg = createDialog(editor);        
         if(dlg == null)
             return;        
         dlg.setLocationRelativeTo(dlg.getParent());        
@@ -59,7 +59,7 @@ public class HTMLTableAction extends HTMLTextEditAction
     
     protected void wysiwygEditPerformed(ActionEvent e, JEditorPane editor)
     {
-        NewTableDialog dlg = createNewTableDialog(editor);                
+        NewTableDialog dlg = createDialog(editor);                
         if(dlg == null)
             return;        
         dlg.setLocationRelativeTo(dlg.getParent());        
@@ -74,12 +74,16 @@ public class HTMLTableAction extends HTMLTextEditAction
         CompoundUndoManager.beginCompoundEdit(document);
         try
         {            
-            if(HTMLUtils.isElementEmpty(elem))
-                document.setOuterHTML(elem, html);
-            else if(elem.getName().equals("p-implied"))
-                document.insertAfterEnd(elem, html);          
-            else
-                HTMLUtils.insertHTML(html, HTML.Tag.TABLE, editor);            
+            if(HTMLUtils.isElementEmpty(elem)) {
+            	document.setOuterHTML(elem, html);
+            	document.insertAfterEnd(elem, "<div></div>");
+            } else if(elem.getName().equals("p-implied")) {
+            	Element parent = elem.getParentElement();
+            	document.insertAfterEnd(parent, "<div></div>");
+                document.insertAfterEnd(parent, html);
+            } else {
+                HTMLUtils.insertHTML(html, HTML.Tag.DIV, editor);
+            }
         }
         catch(Exception ex)
         {
@@ -93,7 +97,7 @@ public class HTMLTableAction extends HTMLTextEditAction
      * @param ed
      * @return the dialog 
      */
-    private NewTableDialog createNewTableDialog(JTextComponent ed)
+    protected NewTableDialog createDialog(JTextComponent ed)
     {
         Window w = SwingUtilities.getWindowAncestor(ed);
         NewTableDialog d = null;
