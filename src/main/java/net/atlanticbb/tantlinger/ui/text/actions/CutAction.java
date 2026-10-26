@@ -38,7 +38,7 @@ public class CutAction extends BasicEditAction
         putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "cut.png"));
         putValue(Action.ACCELERATOR_KEY,
             KeyStroke.getKeyStroke(KeyEvent.VK_X, InputEvent.CTRL_MASK));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("cut")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("cut")));
         addShouldBeEnabledDelegate(new ShouldBeEnabledDelegate()
         {
             public boolean shouldBeEnabled(Action a)

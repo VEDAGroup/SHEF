@@ -38,7 +38,7 @@ public class HTMLTableAction extends HTMLTextEditAction
     public HTMLTableAction()
     {
         super(i18n.str("table_"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("table_")));     
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("table_")));     
         
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "table.png")); 
         putValue(Action.SHORT_DESCRIPTION, getValue(Action.NAME));

@@ -37,13 +37,13 @@ public class HTMLFontDialog extends HTMLOptionDialog
     
     private static final Integer SIZES[] =
     {
-        new Integer(8),
-        new Integer(10),
-        new Integer(12),
-        new Integer(14),
-        new Integer(18),
-        new Integer(24),
-        new Integer(36)        
+        Integer.valueOf(8),
+        Integer.valueOf(10),
+        Integer.valueOf(12),
+        Integer.valueOf(14),
+        Integer.valueOf(18),
+        Integer.valueOf(24),
+        Integer.valueOf(36)        
     };    
     
     private JPanel jContentPane = null;
@@ -124,7 +124,7 @@ public class HTMLFontDialog extends HTMLOptionDialog
     
     public void setFontSize(int size)
     {              
-        sizeCombo.setSelectedItem(new Integer(size));
+        sizeCombo.setSelectedItem(Integer.valueOf(size));
         updatePreview();
     }
     
@@ -232,7 +232,7 @@ public class HTMLFontDialog extends HTMLOptionDialog
             jContentPane.add(getSizeCombo(), gridBagConstraints2);
             jContentPane.add(getStylePanel(), gridBagConstraints21);
             
-            sizeCombo.setSelectedItem(new Integer(previewLabel.getFont().getSize()));
+            sizeCombo.setSelectedItem(Integer.valueOf(previewLabel.getFont().getSize()));
         }
         return jContentPane;
     }
@@ -279,7 +279,7 @@ public class HTMLFontDialog extends HTMLOptionDialog
         if(sizeCombo == null)
         {
             sizeCombo = new JComboBox(SIZES);
-            sizeCombo.setSelectedItem(new Integer(12));
+            sizeCombo.setSelectedItem(Integer.valueOf(12));
             sizeCombo.addItemListener(new java.awt.event.ItemListener()
             {
                 public void itemStateChanged(java.awt.event.ItemEvent e)

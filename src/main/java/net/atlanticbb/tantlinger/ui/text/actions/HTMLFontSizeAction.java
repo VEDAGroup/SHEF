@@ -81,7 +81,7 @@ public class HTMLFontSizeAction extends HTMLTextEditAction
         if(at.isDefined(StyleConstants.FontSize))
         {
             setSelected(at.containsAttribute(
-                StyleConstants.FontSize, new Integer(FONT_SIZES[size])));
+                StyleConstants.FontSize, Integer.valueOf(FONT_SIZES[size])));
         }
         else
         {

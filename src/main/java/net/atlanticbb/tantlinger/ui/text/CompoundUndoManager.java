@@ -231,7 +231,7 @@ public class CompoundUndoManager implements UndoableEditListener
             super(i18n.str("undo"));                
             putValue(Action.SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "undo.png"));
             putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "undo.png"));
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("undo")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("undo")));
                         
             setEnabled(false);
             putValue(
@@ -273,7 +273,7 @@ public class CompoundUndoManager implements UndoableEditListener
             super(i18n.str("redo"));            
             putValue(Action.SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "redo.png"));
             putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "redo.png"));
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("redo")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("redo")));
             
             setEnabled(false);
             putValue(Action.ACCELERATOR_KEY, KeyStroke.getKeyStroke(

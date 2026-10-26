@@ -96,27 +96,27 @@ public class HTMLBlockAction extends HTMLTextEditAction
         putValue(Action.ACCELERATOR_KEY, 
             KeyStroke.getKeyStroke(KEYS[type], Event.ALT_MASK));
         if(type == P)
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("paragraph"))); //$NON-NLS-1$
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("paragraph"))); //$NON-NLS-1$
         else if(type == PRE)
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("preformatted"))); //$NON-NLS-1$
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("preformatted"))); //$NON-NLS-1$
         else if(type == BLOCKQUOTE)
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("blockquote"))); //$NON-NLS-1$
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("blockquote"))); //$NON-NLS-1$
         else if(type == OL)
         {
             putValue(SMALL_ICON,
                 UIUtils.getIcon(UIUtils.X16, "listordered.png")); //$NON-NLS-1$
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("ordered_list"))); //$NON-NLS-1$
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("ordered_list"))); //$NON-NLS-1$
         }
         else if(type == UL)
         {
             putValue(SMALL_ICON,
                 UIUtils.getIcon(UIUtils.X16, "listunordered.png")); //$NON-NLS-1$
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("unordered_list"))); //$NON-NLS-1$
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("unordered_list"))); //$NON-NLS-1$
         }
         else
         {
             String s = type + ""; //$NON-NLS-1$
-            putValue(Action.MNEMONIC_KEY, new Integer(s.charAt(0)));
+            putValue(Action.MNEMONIC_KEY, Integer.valueOf(s.charAt(0)));
         }
         putValue(ActionManager.BUTTON_TYPE, ActionManager.BUTTON_TYPE_VALUE_RADIO);
         putValue(Action.SHORT_DESCRIPTION, getValue(Action.NAME));

@@ -74,7 +74,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             
             try
             {
-                widthField.getModel().setValue(new Integer(w));
+                widthField.getModel().setValue(Integer.valueOf(w));
             }
             catch(Exception ex)
             {
@@ -107,7 +107,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 borderField.getModel().setValue(
-                    new Integer(attribs.get("border").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("border").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -127,7 +127,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 cellPaddingField.getModel().setValue(
-                    new Integer(attribs.get("cellpadding").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("cellpadding").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -147,7 +147,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 cellSpacingField.getModel().setValue(
-                    new Integer(attribs.get("cellspacing").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("cellspacing").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -224,7 +224,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
                 widthCombo.setSelectedIndex(1);
             try
             {
-                widthField.getModel().setValue(new Integer(w));
+                widthField.getModel().setValue(Integer.valueOf(w));
             }
             catch(Exception ex)
             {
@@ -256,7 +256,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 borderField.getModel().setValue(
-                    new Integer(attribs.get("border").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("border").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -275,7 +275,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 cellPaddingField.getModel().setValue(
-                    new Integer(attribs.get("cellpadding").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("cellpadding").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -294,7 +294,7 @@ public class TableAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 cellSpacingField.getModel().setValue(
-                    new Integer(attribs.get("cellspacing").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("cellspacing").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {

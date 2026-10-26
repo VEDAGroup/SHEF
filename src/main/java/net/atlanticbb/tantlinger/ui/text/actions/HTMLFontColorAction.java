@@ -36,7 +36,7 @@ public class HTMLFontColorAction extends HTMLTextEditAction
     public HTMLFontColorAction()
     {
         super(i18n.str("color_"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("color_")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("color_")));
         this.putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "color.png"));        
     }
 

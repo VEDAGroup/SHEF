@@ -289,7 +289,7 @@ public class TextEditPopupManager
         {
             super(i18n.str("redo"), 
                 UIUtils.getIcon(UIUtils.X16, "redo.png"));
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("redo")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("redo")));
         }
 
         public void actionPerformed(ActionEvent e)
@@ -317,7 +317,7 @@ public class TextEditPopupManager
         {
             super(i18n.str("undo"), 
                 UIUtils.getIcon(UIUtils.X16, "undo.png"));
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("undo")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("undo")));
         }
 
         public void actionPerformed(ActionEvent e)
@@ -347,7 +347,7 @@ public class TextEditPopupManager
         public NSelectAllAction()
         {
             super(i18n.str("select_all"));
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("select_all")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("select_all")));
         }
 
         public void actionPerformed(ActionEvent e)

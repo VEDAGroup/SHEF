@@ -23,7 +23,7 @@ public class SelectAllAction extends BasicEditAction
     public SelectAllAction()
     {
         super(i18n.str("select_all"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("select_all")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("select_all")));
         
         putValue(ACCELERATOR_KEY, 
             KeyStroke.getKeyStroke(KeyEvent.VK_A, InputEvent.CTRL_MASK));

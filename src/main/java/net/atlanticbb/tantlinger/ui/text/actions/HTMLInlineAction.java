@@ -94,7 +94,7 @@ public class HTMLInlineAction extends HTMLTextEditAction
         if(type < 0 || type >= INLINE_TYPES.length)
             throw new IllegalArgumentException("Illegal Argument");
         putValue(NAME, (INLINE_TYPES[type]));
-        putValue(MNEMONIC_KEY, new Integer(MNEMS[type]));
+        putValue(MNEMONIC_KEY, Integer.valueOf(MNEMS[type]));
         
         Icon ico = null;
         KeyStroke ks = null;

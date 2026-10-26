@@ -39,7 +39,7 @@ public class PasteAction extends HTMLTextEditAction
     public PasteAction()
     {
         super(i18n.str("paste"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("paste")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("paste")));
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "paste.png"));
         putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "paste.png"));
 		putValue(ACCELERATOR_KEY,

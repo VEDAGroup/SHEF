@@ -59,7 +59,7 @@ public class SizeAttributesPanel extends HTMLAttributeEditorPanel
                 wMeasurementCombo.setSelectedIndex(1);
             try
             {
-                widthField.getModel().setValue(new Integer(w));
+                widthField.getModel().setValue(Integer.valueOf(w));
             }
             catch(Exception ex)
             {
@@ -85,7 +85,7 @@ public class SizeAttributesPanel extends HTMLAttributeEditorPanel
                 hMeasurementCombo.setSelectedIndex(1);
             try
             {
-                heightField.getModel().setValue(new Integer(h));
+                heightField.getModel().setValue(Integer.valueOf(h));
             }
             catch(Exception ex)
             {
@@ -140,7 +140,7 @@ public class SizeAttributesPanel extends HTMLAttributeEditorPanel
                 wMeasurementCombo.setSelectedIndex(1);
             try
             {
-                widthField.getModel().setValue(new Integer(w));
+                widthField.getModel().setValue(Integer.valueOf(w));
             }
             catch(Exception ex)
             {
@@ -166,7 +166,7 @@ public class SizeAttributesPanel extends HTMLAttributeEditorPanel
                 hMeasurementCombo.setSelectedIndex(1);
             try
             {
-                heightField.getModel().setValue(new Integer(h));
+                heightField.getModel().setValue(Integer.valueOf(h));
             }
             catch(Exception ex)
             {

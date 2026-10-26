@@ -85,7 +85,7 @@ public class ImageAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 widthField.getModel().setValue(
-                    new Integer(attribs.get("width").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("width").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -105,7 +105,7 @@ public class ImageAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 heightField.getModel().setValue(
-                    new Integer(attribs.get("height").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("height").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -125,7 +125,7 @@ public class ImageAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 hSpaceField.getModel().setValue(
-                    new Integer(attribs.get("hspace").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("hspace").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -145,7 +145,7 @@ public class ImageAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 vSpaceField.getModel().setValue(
-                    new Integer(attribs.get("vspace").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("vspace").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -165,7 +165,7 @@ public class ImageAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 borderField.getModel().setValue(
-                    new Integer(attribs.get("border").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("border").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {

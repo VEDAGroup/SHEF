@@ -43,7 +43,7 @@ public class HTMLLinkAction extends HTMLTextEditAction
     public HTMLLinkAction(Set hiddenAttributes)
     {
         super(i18n.str("hyperlink_"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("hyperlink_")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("hyperlink_")));
         
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "link.png"));
         putValue(Action.SHORT_DESCRIPTION, getValue(Action.NAME));

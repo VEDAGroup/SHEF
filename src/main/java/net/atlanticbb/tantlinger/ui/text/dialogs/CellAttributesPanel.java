@@ -60,7 +60,7 @@ public class CellAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 colSpanField.getModel().setValue(
-                    new Integer(attribs.get("colspan").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("colspan").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {
@@ -80,7 +80,7 @@ public class CellAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 rowSpanField.getModel().setValue(
-                    new Integer(attribs.get("rowspan").toString())); //$NON-NLS-1$
+                    Integer.valueOf(attribs.get("rowspan").toString())); //$NON-NLS-1$
             }
             catch(Exception ex)
             {

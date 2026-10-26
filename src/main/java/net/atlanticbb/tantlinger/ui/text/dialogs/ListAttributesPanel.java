@@ -188,7 +188,7 @@ public class ListAttributesPanel extends HTMLAttributeEditorPanel
             try
             {
                 int n = Integer.parseInt(attribs.get("start").toString()); //$NON-NLS-1$
-                startAtField.getModel().setValue(new Integer(n));
+                startAtField.getModel().setValue(Integer.valueOf(n));
             }
             catch(Exception ex){}
         }

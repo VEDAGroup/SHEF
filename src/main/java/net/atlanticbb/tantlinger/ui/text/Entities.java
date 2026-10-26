@@ -454,7 +454,7 @@ public class Entities
 
         public void add(String name, int value)
         {
-            mapNameToValue.put(name, new Integer(value));
+            mapNameToValue.put(name, Integer.valueOf(value));
             mapValueToName.put(value, name);
         }
 
@@ -483,13 +483,13 @@ public class Entities
 
         public void add(String name, int value)
         {
-            mapNameToValue.put(name, new Integer(value));
-            mapValueToName.put(new Integer(value), name);
+            mapNameToValue.put(name, Integer.valueOf(value));
+            mapValueToName.put(Integer.valueOf(value), name);
         }
 
         public String name(int value)
         {
-            return (String)mapValueToName.get(new Integer(value));
+            return (String)mapValueToName.get(Integer.valueOf(value));
         }
 
         public int value(String name)

@@ -89,7 +89,7 @@ public class HTMLFontAction extends HTMLTextEditAction
         {
             MutableAttributeSet tagAttrs = new SimpleAttributeSet();
             tagAttrs.addAttribute(StyleConstants.FontFamily, d.getFontName());
-            tagAttrs.addAttribute(StyleConstants.FontSize, new Integer(d.getFontSize()));
+            tagAttrs.addAttribute(StyleConstants.FontSize, Integer.valueOf(d.getFontSize()));
             tagAttrs.addAttribute(StyleConstants.Bold, new Boolean(d.isBold()));
             tagAttrs.addAttribute(StyleConstants.Italic, new Boolean(d.isItalic()));
             tagAttrs.addAttribute(StyleConstants.Underline, new Boolean(d.isUnderline()));

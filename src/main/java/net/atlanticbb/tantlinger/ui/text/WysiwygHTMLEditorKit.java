@@ -381,8 +381,8 @@ public class WysiwygHTMLEditorKit extends HTMLEditorKit
             {
                 Element elem = v.getElement();
                 SimpleAttributeSet sas = new SimpleAttributeSet(elem.getAttributes());
-                Integer w = new Integer(v.getSelectionBounds().width);
-                Integer h = new Integer(v.getSelectionBounds().height);
+                Integer w = Integer.valueOf(v.getSelectionBounds().width);
+                Integer h = Integer.valueOf(v.getSelectionBounds().height);
 
                 if(elem.getName().equals("table"))//resize the table
                 {

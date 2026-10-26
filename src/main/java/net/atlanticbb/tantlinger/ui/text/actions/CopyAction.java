@@ -37,7 +37,7 @@ public class CopyAction extends BasicEditAction
         putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "copy.png"));
         putValue(Action.ACCELERATOR_KEY,
             KeyStroke.getKeyStroke(KeyEvent.VK_C, InputEvent.CTRL_MASK));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("copy")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("copy")));
         addShouldBeEnabledDelegate(new ShouldBeEnabledDelegate()
         {
         	public boolean shouldBeEnabled(Action a)

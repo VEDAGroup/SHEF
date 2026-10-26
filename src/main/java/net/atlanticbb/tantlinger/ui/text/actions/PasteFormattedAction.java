@@ -45,7 +45,7 @@ public class PasteFormattedAction extends HTMLTextEditAction
     {
         
         super(i18n.str("paste_formatted"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("paste_formatted")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("paste_formatted")));
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "paste.png"));
         putValue(ActionManager.LARGE_ICON, UIUtils.getIcon(UIUtils.X24, "paste.png"));
         putValue(ACCELERATOR_KEY,KeyStroke.getKeyStroke("shift ctrl V"));

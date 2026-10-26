@@ -32,7 +32,7 @@ public class HTMLLineBreakAction extends HTMLTextEditAction
     public HTMLLineBreakAction()
     {
         super(i18n.str("line_break"));
-        putValue(MNEMONIC_KEY, new Integer(i18n.mnem("line_break")));
+        putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("line_break")));
         putValue(SMALL_ICON, UIUtils.getIcon(UIUtils.X16, "br.png"));
         putValue(ACCELERATOR_KEY, 
         	KeyStroke.getKeyStroke(Event.ENTER, Event.SHIFT_MASK));

@@ -33,12 +33,12 @@ public class FindReplaceAction extends BasicEditAction
         if(isReplace)
         {           
             putValue(NAME, i18n.str("replace_")); //$NON-NLS-1$
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("replace_")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("replace_")));
         }
         else
         {           
             putValue(NAME, i18n.str("find_")); //$NON-NLS-1$
-            putValue(MNEMONIC_KEY, new Integer(i18n.mnem("find_")));
+            putValue(MNEMONIC_KEY, Integer.valueOf(i18n.mnem("find_")));
             putValue(ACCELERATOR_KEY,
                 KeyStroke.getKeyStroke(KeyEvent.VK_F, Event.CTRL_MASK));
         }
